@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal ISSSTE - Gestión Administrativa</title>
+    <style>
+        :root {
+            --issste-turquesa: #006666;
+            --issste-turquesa-oscuro: #004d4d;
+            --issste-gris-fondo: #f4f7f6;
+            --issste-gris-texto: #333333;
+            --issste-blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--issste-gris-fondo);
+            color: var(--issste-gris-texto);
+        }
+
+        header {
+            background-color: var(--issste-turquesa);
+            color: var(--issste-blanco);
+            padding: 25px 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: var(--issste-blanco);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--issste-turquesa);
+        }
+
+        h2 {
+            color: var(--issste-turquesa-oscuro);
+            margin-top: 0;
+            font-size: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+
+        li {
+            background-color: #fafbfc;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--issste-turquesa);
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .empty-msg {
+            color: #777;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ISSSTE — Portal de Gestión Administrativa</h1>
+        <p>Sistema interno de control de áreas y archivos</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Áreas Registradas en el Sistema</h2>
+            <ul>
+                {% for area in areas %}
+                    <li><strong>{{ area.nombre }}</strong></li>
+                {% empty %}
+                    <li class="empty-msg">No hay áreas registradas actualmente.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+
+</body>
+</html>
